@@ -99,8 +99,11 @@
 #define EXTRA_SRC_ADDR 190
 #define STRIPCTL_ADDR 192
 #define STRIPCC_ADDR 194
+#define GLISSSET_ADDR 196            // ws
+#define VIB2BR_DIRECTION_ADDR 198    // ws
+#define VIB2BR_AMOUNT_ADDR 200       // ws
 
-#define EEPROM_SIZE 196 //Last address +2
+#define EEPROM_SIZE 202 //Last address +2
 
 
 //DAC output modes
@@ -174,6 +177,7 @@
 #define BATTYPE_FACTORY 0
 #define HARMSET_FACTORY 0
 #define HARMSEL_FACTORY 0
+#define GLISSSEL_FACTORY 0  // ws
 #define PARAB_FACTORY 31 // 7 (+ 24) Rotator parallel
 #define ROTB1_FACTORY 19 // -5 (+24) Rotation 1
 #define ROTB2_FACTORY 14 // -10 (+24) Rotation 2
@@ -207,6 +211,8 @@
 #define EXTRA_SRC_FACTORY 0
 #define STRIPCTL_FACTORY 1
 #define STRIPCC_FACTORY 1
+#define VIB2BRDIR_FACTORY 1  // ws
+#define VIB2BRAMT_FACTORY 10  // ws
 
 #define NO_CHECKSUM 0x7F007F00
 

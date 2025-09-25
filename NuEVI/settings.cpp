@@ -194,7 +194,11 @@ void readEEPROM(const bool factoryReset) {
           writeSetting(STRIPCTL_ADDR, STRIPCTL_FACTORY);
           writeSetting(STRIPCC_ADDR, STRIPCC_FACTORY);
         }
-
+       if(settingsVersion < 49) {
+		    writeSetting(GLISSSET_ADDR, GLISSSEL_FACTORY);  // ws
+            writeSetting(VIB2BR_DIRECTION_ADDR, VIB2BRDIR_FACTORY);  // ws
+            writeSetting(VIB2BR_AMOUNT_ADDR, VIB2BRAMT_FACTORY);  // ws
+        }
         writeSetting(VERSION_ADDR, EEPROM_VERSION);
     }
 
@@ -253,9 +257,9 @@ void readEEPROM(const bool factoryReset) {
     levelCC         = readSettingBounded(LEVEL_CC_ADDR, 0, 127, LEVEL_CC_FACTORY);
     levelVal        = readSettingBounded(LEVEL_VAL_ADDR, 0, 127, LEVEL_VAL_FACTORY);
     #if defined(NURAD)
-    fingering       = readSettingBounded(FINGER_ADDR, 0, 4, FINGER_FACTORY);
+    fingering       = readSettingBounded(FINGER_ADDR, 0, 7, FINGER_FACTORY); // ws: added XVI, XVR and WX5
     #else
-    fingering       = readSettingBounded(FINGER_ADDR, 0, 3, FINGER_FACTORY);
+    fingering       = readSettingBounded(FINGER_ADDR, 0, 5, FINGER_FACTORY); // ws: added XVI and XVR
     #endif
     lpinky3         = readSettingBounded(LPINKY3_ADDR, 0, 25, LPINKY3_FACTORY);
     batteryType     = readSettingBounded(BATTYPE_ADDR, 0, 3, BATTYPE_FACTORY);
@@ -284,7 +288,7 @@ void readEEPROM(const bool factoryReset) {
     leverMaxVal     = readSettingBounded(LEVER_MAX_ADDR, leverLoLimit, leverHiLimit, LEVER_MAX_FACTORY);
     brHarmSetting   = readSettingBounded(BRHARMSET_ADDR, 0, 6, BRHARMSET_FACTORY);
     brHarmSelect    = readSettingBounded(BRHARMSEL_ADDR, 0, 3, BRHARMSEL_FACTORY);
-    biteControl     = readSettingBounded(BITECTL_ADDR, 0, 3, BITECTL_FACTORY);
+    biteControl     = readSettingBounded(BITECTL_ADDR, 0, 4, BITECTL_FACTORY);  // ws added GLISS to bite sensor
     leverControl    = readSettingBounded(LEVERCTL_ADDR, 0, 3, LEVERCTL_FACTORY);
     biteCC          = readSettingBounded(BITECC_ADDR, 0, 127, BITECC_FACTORY);
     leverCC         = readSettingBounded(LEVERCC_ADDR, 0, 127, LEVERCC_FACTORY);
@@ -296,6 +300,9 @@ void readEEPROM(const bool factoryReset) {
     extraSrc        = readSettingBounded(EXTRA_SRC_ADDR, 0, 1, EXTRA_SRC_FACTORY);
     stripControl    = readSettingBounded(STRIPCTL_ADDR, 0, 2, STRIPCTL_FACTORY);
     stripCC         = readSettingBounded(STRIPCC_ADDR, 0, 127, STRIPCC_FACTORY);
+    glissSetting    = readSettingBounded(GLISSSET_ADDR, 0, 127, GLISSSEL_FACTORY);  // ws
+    vib2BrDirection = readSettingBounded(VIB2BR_DIRECTION_ADDR, 0, 1, VIB2BRDIR_FACTORY);  // ws
+    vib2BreathAmount = readSettingBounded(VIB2BR_AMOUNT_ADDR, 0, 10, VIB2BRAMT_FACTORY);  // ws
 
     //Flags stored in bit field
     fastBoot         = (dipSwBits & (1<<DIPSW_FASTBOOT))?1:0;

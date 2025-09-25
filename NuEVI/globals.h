@@ -110,12 +110,14 @@ extern unsigned short vibDirection; //direction of first vibrato wave UPWD or DN
 extern unsigned short vibSensBite; // vibrato sensitivity (bite)
 extern unsigned short vibSquelchBite; //vibrato signal squelch (bite)
 extern unsigned short vibControl;
+extern unsigned short vib2BreathAmount;
+extern unsigned short vib2BrDirection;
 extern unsigned short fastPatch[7];
 extern unsigned short fastPatchEnable;
 extern unsigned short extraCT2; // OFF:1-127
 extern unsigned short levelCC; // 0-127
 extern unsigned short levelVal; // 0-127
-extern unsigned short fingering; // 0-4 EWI,EWX,SAX,EVI,EVR
+extern unsigned short fingering; // 0-7 EWI,EWX,SAX,EVI,EVR,XVI,XVR,WX5 ws: added XVI,XVR,WX5
 extern unsigned short rollerMode; //0-2
 extern unsigned short lpinky3; // 0-25 (OFF, -12 - MOD - +12)
 extern unsigned short batteryType; // 0-2 ALK,NIM,LIP
@@ -123,6 +125,7 @@ extern unsigned short harmSetting; // 0-7
 extern unsigned short harmSelect; // 0-5
 extern unsigned short brHarmSetting; // 0-7
 extern unsigned short brHarmSelect; // 0-3
+extern unsigned short glissSetting; // 0-127 (OFF is 0-7, 8-127 is 8-127mS) ws
 extern PolySelect polySelect;  // OFF, MGR, MGD, MND, MNH, FWC, RTA, RTB or RTC
 extern unsigned short fwcType; // 6, m6, 7, m7
 extern unsigned short fwcLockH; // OFF:ON
@@ -131,7 +134,7 @@ extern unsigned short hmzKey; // 0-11 (0 is C)
 extern unsigned short hmzLimit; // 2-5
 extern unsigned short otfKey; //OFF:ON
 extern unsigned short breathInterval; // 3-15
-extern unsigned short biteControl; // OFF, VIB, GLD, CC
+extern unsigned short biteControl; // OFF, VIB, GLD, CC, GLO (ws)
 extern unsigned short leverControl; // OFF, VIB, GLD, CC
 extern unsigned short stripControl; // OFF, GLD, CC
 extern unsigned short biteCC; // 0 - 127
