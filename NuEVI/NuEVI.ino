@@ -3159,7 +3159,7 @@ void readSwitches()
           matched++;
       }
     }
-    if (matched < 11 && combo == 27)
+    if (matched < 11 && combo == 28)
       fingeredNoteUntransposed = lastFingering;
     else
       fingeredNoteUntransposed = startNote + 1 + wx5FingerResult[combo - 1] - LHp2 + RHs - (RHp2 && (1 == combo) && LHp2) + octaveR * 12;
